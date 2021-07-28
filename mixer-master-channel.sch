@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 11
+Sheet 1 12
 Title ""
 Date ""
 Rev ""
@@ -40,12 +40,12 @@ F2 "SUM" I R 6300 2100 50
 F3 "SUM_IN" I L 5550 2100 50 
 $EndSheet
 $Sheet
-S 5550 3700 700  400 
+S 5500 3000 700  400 
 U 6034CAF4
 F0 "sheet6034CADE" 50
 F1 "summer.sch" 50
-F2 "SUM" I R 6250 3900 50 
-F3 "SUM_IN" I L 5550 3900 50 
+F2 "SUM" I R 6200 3200 50 
+F3 "SUM_IN" I L 5500 3200 50 
 $EndSheet
 $Sheet
 S 8050 1900 700  400 
@@ -54,6 +54,7 @@ F0 "sheet6034D121" 50
 F1 "summer.sch" 50
 F2 "SUM" I R 8750 2100 50 
 F3 "SUM_IN" I L 8050 2100 50 
+F4 "ADDITIONAL_SUM" I L 8050 2200 50 
 $EndSheet
 $Sheet
 S 8050 3700 700  350 
@@ -62,6 +63,7 @@ F0 "sheet6034D122" 50
 F1 "summer.sch" 50
 F2 "SUM" I R 8750 3900 50 
 F3 "SUM_IN" I L 8050 3900 50 
+F4 "ADDITIONAL_SUM" I L 8050 3800 50 
 $EndSheet
 $Sheet
 S 9200 2600 850  950 
@@ -129,10 +131,6 @@ Wire Wire Line
 	6600 2900 6600 2100
 Wire Wire Line
 	6600 2100 6300 2100
-Wire Wire Line
-	6600 3200 6600 3900
-Wire Wire Line
-	6600 3900 6250 3900
 $Comp
 L power:GND #PWR0113
 U 1 1 60303B01
@@ -187,17 +185,6 @@ Wire Wire Line
 	1550 2100 1650 2100
 Wire Wire Line
 	2400 2000 2500 2000
-$Comp
-L Device:R_POT_Dual_Separate RV101
-U 2 1 60394DC6
-P 8150 2750
-F 0 "RV101" H 8080 2796 50  0000 R CNN
-F 1 "CUEMIX" H 8080 2705 50  0000 R CNN
-F 2 "sam:PTV112" H 8150 2750 50  0001 C CNN
-F 3 "~" H 8150 2750 50  0001 C CNN
-	2    8150 2750
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	9100 2450 9100 2100
 $Comp
@@ -216,11 +203,7 @@ Wire Wire Line
 Wire Wire Line
 	9100 2800 9000 2800
 Wire Wire Line
-	8300 2750 8350 2750
-Wire Wire Line
 	8350 2750 8350 2700
-Wire Wire Line
-	8150 2450 8150 2600
 Wire Wire Line
 	8150 2450 9100 2450
 $Comp
@@ -240,47 +223,27 @@ Wire Wire Line
 	9100 3350 9100 3150
 Wire Wire Line
 	9100 3900 9100 4250
-Wire Wire Line
-	9100 4250 7550 4250
-Wire Wire Line
-	7550 4250 7550 3050
-Wire Wire Line
-	7550 3050 7900 3050
-Wire Wire Line
-	7900 3050 7900 3150
 $Comp
 L Device:R_POT_Dual_Separate RV101
 U 1 1 603A0C3B
-P 7900 3300
-F 0 "RV101" H 7830 3346 50  0000 R CNN
-F 1 "CUEMIX" H 7830 3255 50  0000 R CNN
-F 2 "sam:PTV112" H 7900 3300 50  0001 C CNN
-F 3 "~" H 7900 3300 50  0001 C CNN
-	1    7900 3300
+P 6700 3600
+F 0 "RV101" H 6650 3650 50  0000 R CNN
+F 1 "CUEMIX" H 6650 3550 50  0000 R CNN
+F 2 "sam:PTV112" H 6700 3600 50  0001 C CNN
+F 3 "~" H 6700 3600 50  0001 C CNN
+	1    6700 3600
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	8300 3250 8150 3250
 Wire Wire Line
 	8150 3250 8150 3300
-Wire Wire Line
-	8150 3300 8050 3300
 Text GLabel 2500 2000 2    50   Input ~ 0
 SUMMED_L
 Text GLabel 2550 3800 2    50   Input ~ 0
 SUMMED_R
-Text GLabel 7950 2950 0    50   Input ~ 0
-SUMMED_L
-Text GLabel 8050 3550 0    50   Input ~ 0
+Text GLabel 6700 3750 3    50   Input ~ 0
 SUMMED_R
-Wire Wire Line
-	8050 3550 8050 3450
-Wire Wire Line
-	8050 3450 7900 3450
-Wire Wire Line
-	7950 2950 8150 2950
-Wire Wire Line
-	8150 2950 8150 2900
 Wire Wire Line
 	2550 3800 2400 3800
 $Sheet
@@ -855,7 +818,7 @@ Text GLabel 1650 1950 0    50   Input ~ 0
 BUS_L
 Text GLabel 5550 2100 0    50   Input ~ 0
 SEND_L
-Text GLabel 5550 3900 0    50   Input ~ 0
+Text GLabel 5500 3200 0    50   Input ~ 0
 SEND_R
 Text GLabel 8050 2100 0    50   Input ~ 0
 CUE_L
@@ -994,4 +957,155 @@ F 3 "~" H 3400 4800 50  0001 C CNN
 	1    3400 4800
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:R R106
+U 1 1 608D944F
+P 8150 2600
+F 0 "R106" H 8220 2646 50  0000 L CNN
+F 1 "10k" H 8220 2555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 8080 2600 50  0001 C CNN
+F 3 "~" H 8150 2600 50  0001 C CNN
+	1    8150 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8150 2750 8350 2750
+Wire Wire Line
+	6300 3300 6300 3950
+$Comp
+L Device:R R105
+U 1 1 608F02AB
+P 6300 4100
+F 0 "R105" H 6050 4150 50  0000 L CNN
+F 1 "10k" H 6100 4050 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 6230 4100 50  0001 C CNN
+F 3 "~" H 6300 4100 50  0001 C CNN
+	1    6300 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0122
+U 1 1 60904AD8
+P 6700 3450
+F 0 "#PWR0122" H 6700 3200 50  0001 C CNN
+F 1 "GND" H 6600 3450 50  0000 C CNN
+F 2 "" H 6700 3450 50  0001 C CNN
+F 3 "" H 6700 3450 50  0001 C CNN
+	1    6700 3450
+	-1   0    0    1   
+$EndComp
+$Sheet
+S 3400 3050 1050 650 
+U 60B047F8
+F0 "Sheet60B047F7" 50
+F1 "balanceout.sch" 50
+F2 "L_IN" I L 3400 3300 50 
+F3 "R_IN" I L 3400 3450 50 
+$EndSheet
+Text GLabel 3400 3300 0    50   Input ~ 0
+MASTER_L
+Text GLabel 3400 3450 0    50   Input ~ 0
+MASTER_R
+$Comp
+L Device:R R107
+U 1 1 60C9F93E
+P 7850 2200
+F 0 "R107" V 7643 2200 50  0000 C CNN
+F 1 "10k" V 7734 2200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7780 2200 50  0001 C CNN
+F 3 "~" H 7850 2200 50  0001 C CNN
+	1    7850 2200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R108
+U 1 1 60CA9E1A
+P 7900 3800
+F 0 "R108" V 7693 3800 50  0000 C CNN
+F 1 "10k" V 7784 3800 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 7830 3800 50  0001 C CNN
+F 3 "~" H 7900 3800 50  0001 C CNN
+	1    7900 3800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0121
+U 1 1 608D5E8D
+P 6800 1300
+F 0 "#PWR0121" H 6800 1050 50  0001 C CNN
+F 1 "GND" H 6805 1127 50  0000 C CNN
+F 2 "" H 6800 1300 50  0001 C CNN
+F 3 "" H 6800 1300 50  0001 C CNN
+	1    6800 1300
+	-1   0    0    1   
+$EndComp
+Text GLabel 6800 1600 3    50   Input ~ 0
+SUMMED_L
+$Comp
+L Device:R_POT_Dual_Separate RV101
+U 2 1 60394DC6
+P 6800 1450
+F 0 "RV101" H 6730 1496 50  0000 R CNN
+F 1 "CUEMIX" H 6730 1405 50  0000 R CNN
+F 2 "sam:PTV112" H 6800 1450 50  0001 C CNN
+F 3 "~" H 6800 1450 50  0001 C CNN
+	2    6800 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 2200 8050 2200
+$Comp
+L Amplifier_Operational:TL074 U1201
+U 3 1 610379A6
+P 7350 1550
+F 0 "U1201" H 7350 1917 50  0000 C CNN
+F 1 "TL074" H 7350 1826 50  0000 C CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 7300 1650 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 7400 1750 50  0001 C CNN
+	3    7350 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7700 2200 7650 2200
+Wire Wire Line
+	7650 2200 7650 1850
+Wire Wire Line
+	6950 1450 7050 1450
+Wire Wire Line
+	7050 1650 7050 1850
+Wire Wire Line
+	7050 1850 7650 1850
+Connection ~ 7650 1850
+Wire Wire Line
+	7650 1850 7650 1550
+$Comp
+L Amplifier_Operational:TL074 U1201
+U 4 1 6106BF15
+P 7200 3700
+F 0 "U1201" H 7200 4050 50  0000 C CNN
+F 1 "TL074" H 7200 3976 50  0000 C CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 7150 3800 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 7250 3900 50  0001 C CNN
+	4    7200 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 3600 6850 3600
+Wire Wire Line
+	6900 3800 6900 3950
+Wire Wire Line
+	6900 3950 7500 3950
+Wire Wire Line
+	6200 3200 6600 3200
+Wire Wire Line
+	6300 3300 8150 3300
+Wire Wire Line
+	6300 4250 9100 4250
+Wire Wire Line
+	7500 3800 7750 3800
+Connection ~ 7500 3800
+Wire Wire Line
+	7500 3800 7500 3950
+Wire Wire Line
+	7500 3700 7500 3800
 $EndSCHEMATC
